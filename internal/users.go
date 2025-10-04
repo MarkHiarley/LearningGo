@@ -23,6 +23,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	err := json.NewEncoder(w).Encode(data)
+
 	if err != nil {
 		log.Printf("Erro ao encodar JSON: %v", err)
 	}
