@@ -8,8 +8,10 @@ import (
 
 func main() {
 	server := gin.Default()
+	api := "/v1"
 
-	server.GET("/users", users.GetUsers)
+	server.GET(api+"/users", users.GetUsers)
+	server.POST(api+"/users", users.CadastrarUser)
 
 	server.Run(":8080")
 }

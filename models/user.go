@@ -5,3 +5,8 @@ type User struct {
 	Name string
 	Age  int
 }
+
+type Body struct {
+	Name string
+	Age  int
+}
