@@ -2,12 +2,13 @@ package users
 
 import (
 	"API/models"
-	"encoding/json"
-	"log"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
-func GetUsers(w http.ResponseWriter, r *http.Request) {
+func GetUsers(ctx *gin.Context) {
+
 	data := []models.User{
 		{
 			Id:   1,
@@ -20,11 +21,8 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 			Age:  12,
 		},
 	}
+	ctx.JSON(http.StatusOK, gin.H{
+		"data": data,
+	})
 
-	w.Header().Set("Content-Type", "application/json")
-	err := json.NewEncoder(w).Encode(data)
-
-	if err != nil {
-		log.Printf("Erro ao encodar JSON: %v", err)
-	}
 }
