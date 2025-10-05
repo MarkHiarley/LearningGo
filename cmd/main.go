@@ -8,6 +8,7 @@ import (
 
 func main() {
 	server := gin.Default()
+
 	api := "/v1"
 
 	server.GET(api+"/users", users.GetUsers)
