@@ -25,12 +25,12 @@ func (p *userController) CreateUser(ctx *gin.Context) {
 	err := ctx.BindJSON(&user)
 
 	if user.Name == "" {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": "name is obrigatory"})
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": "name is required"})
 		return
 	}
 
 	if user.Age == 0 {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": "age is obrigatory"})
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": "age is required"})
 		return
 	}
 
